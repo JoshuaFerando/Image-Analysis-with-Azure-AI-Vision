@@ -32,6 +32,8 @@ Built with a Flask backend, this project demonstrates a practical use case for c
 ├── image_analysis.py       # Module for Azure AI Vision analysis logic
 ├── requirements.txt        # Project dependencies
 ├── .env                    # Environment variables for Azure keys
+├── README.md
+├── LICENSE
 ├── static/
 │   ├── uploads/            # Stores user-uploaded images
 │   └── annotated/          # Stores images with detected objects/people
