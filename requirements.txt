@@ -1,0 +1,7 @@
+dotenv
+matplotlib
+pillow
+Flask
+azure-ai-vision-imageanalysis==1.0.0
+requests
+uuid

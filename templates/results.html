@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Analysis Results</h1>
+
+    <div class="results-grid">
+        <div class="result-card">
+            <h2>Original Image</h2>
+            <img src="{{ url_for('static', filename='uploads/' + original_image) }}">
+        </div>
+
+        {% if results.caption %}
+        <div class="result-card">
+            <h2>Caption</h2>
+            <p>"{{ results.caption.text }}" (Confidence: {{ "%.2f"|format(results.caption.confidence * 100) }}%)</p>
+        </div>
+        {% endif %}
+
+        {% if results.tags and results.tags.list %}
+        <div class="result-card">
+            <h2>Tags</h2>
+            <ul>
+                {% for tag in results.tags.list %}
+                <li>{{ tag.name }} (Confidence: {{ "%.2f"|format(tag.confidence * 100) }}%)</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if results.objects_image %}
+        <div class="result-card">
+            <h2>Detected Objects</h2>
+            <img src="{{ url_for('static', filename='annotated/' + results.objects_image) }}">
+        </div>
+        {% endif %}
+        
+        {% if results.people_image %}
+        <div class="result-card">
+            <h2>Detected People</h2>
+            <img src="{{ url_for('static', filename='annotated/' + results.people_image) }}">
+        </div>
+        {% endif %}
+
+        {% if results.dense_captions and results.dense_captions.list %}
+        <div class="result-card">
+            <h2>Dense Captions</h2>
+            <ul>
+                {% for caption in results.dense_captions.list %}
+                <li>"{{ caption.text }}" (Confidence: {{ "%.2f"|format(caption.confidence * 100) }}%)</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer-link">
+        <a href="/" class="button-link">Analyze Another Image</a>
+    </div>
+</body>
+</html>
