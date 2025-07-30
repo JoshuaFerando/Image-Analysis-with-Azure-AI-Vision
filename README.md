@@ -49,7 +49,7 @@ Built with a Flask backend, this project demonstrates a practical use case for c
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/JoshuaFerando/Image-Analysis-with-Azure-AI-Vision
+git clone https://github.com/Joshua-Fernando/Image-Analysis-with-Azure-AI-Vision
 cd Image-Analysis-with-Azure-AI-Vision
 ```
 
